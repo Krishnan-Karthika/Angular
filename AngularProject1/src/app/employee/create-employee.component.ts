@@ -22,6 +22,30 @@ export class CreateEmployeeComponent /*implements OnInit */{
     });
   // }
 
+  // onLoadDataClick(): void {
+  //   this.employeeForm.setValue({
+  //     fullName: 'Pragim Technologies',
+  //     email: 'pragim@pragimtech.com',
+  //     skills: {
+  //       skillName: 'C#',
+  //       experienceInYears: 5,
+  //       proficiency: 'beginner'
+  //     }
+  //   });
+  // }
+
+  onLoadDataClick(): void {
+    this.employeeForm.patchValue({
+      fullName: 'Pragim Technologies',
+      email: 'pragim@pragimtech.com',
+      // skills: {
+      //   skillName: 'C#',
+      //   experienceInYears: 5,
+      //   proficiency: 'beginner'
+      // }
+    });
+  }
+
   onSubmit(): void{
     // console.log(this.employeeForm);
     console.log(this.employeeForm.value);
