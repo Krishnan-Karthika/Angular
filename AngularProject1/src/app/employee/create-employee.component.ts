@@ -8,13 +8,17 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class CreateEmployeeComponent /*implements OnInit */{
   // employeeForm: FormGroup;
-  // constructor() { }
+  constructor() { }
 
-  // ngOnInit(): void {
+  // ngOnInit(){
     employeeForm = new FormGroup({
-      fullName : new FormControl(''),
-      email : new FormControl('')
+      fullName : new FormControl(),
+      email : new FormControl(),
     });
   // }
+
+  onSubmit(): void{
+    console.log(this.employeeForm.value);
+  }
 
 }
