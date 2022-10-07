@@ -6,8 +6,9 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   templateUrl: './create-employee.component.html',
   styleUrls: ['./create-employee.component.css']
 })
-export class CreateEmployeeComponent /*implements OnInit */{
+export class CreateEmployeeComponent implements OnInit {
   employeeForm!: FormGroup;
+  fullNameLength = 0;
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(){
@@ -20,7 +21,13 @@ export class CreateEmployeeComponent /*implements OnInit */{
         proficiency: ['beginner']
       }),
     });
+
+    this.employeeForm.get('fullName')?.valueChanges.subscribe(value => {
+      console.log(value);
+    });
   }
+
+
 
   // onLoadDataClick(): void {
   //   this.employeeForm.setValue({
