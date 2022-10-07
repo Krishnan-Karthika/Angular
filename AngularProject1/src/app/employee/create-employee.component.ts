@@ -22,8 +22,8 @@ export class CreateEmployeeComponent implements OnInit {
       }),
     });
 
-    this.employeeForm.get('fullName')?.valueChanges.subscribe(value => {
-      console.log(value);
+    this.employeeForm.get('fullName')?.valueChanges.subscribe((value:any) => {
+      this.fullNameLength = value.length;
     });
   }
 
