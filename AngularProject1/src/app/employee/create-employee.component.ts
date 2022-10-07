@@ -27,10 +27,8 @@ export class CreateEmployeeComponent implements OnInit {
       const abstractControl = group.get(key);
       if (abstractControl instanceof FormGroup) {
         this.logKeyValuePairs(abstractControl);
-        abstractControl.disable();
       } else {
-        console.log('Key = ' + key + ' && Value = ' + abstractControl?.value);
-      }
+        abstractControl?.markAsDirty();      }
     });
   }
 
