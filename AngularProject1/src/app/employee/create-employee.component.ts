@@ -21,7 +21,7 @@ export class CreateEmployeeComponent implements OnInit {
       }),
     });
 
-    this.employeeForm.valueChanges.subscribe((value:any) => {
+    this.employeeForm.get('skills')?.valueChanges.subscribe((value:any) => {
       console.log(JSON.stringify(value))
     });
   }
