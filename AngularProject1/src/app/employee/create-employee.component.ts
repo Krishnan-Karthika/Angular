@@ -8,6 +8,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class CreateEmployeeComponent implements OnInit {
   employeeForm!: FormGroup;
+  constructor(private fb: FormBuilder) { }
 
   formErrors = {
     'fullName': '',
@@ -37,7 +38,7 @@ export class CreateEmployeeComponent implements OnInit {
     },
   };
 
-  constructor(private fb: FormBuilder) { }
+
 
   ngOnInit(){
     this.employeeForm = this.fb.group({
@@ -49,16 +50,19 @@ export class CreateEmployeeComponent implements OnInit {
         proficiency: ['',Validators.required]
       }),
     });
+    this.employeeForm.valueChanges.subscribe((data) => {
+      this.logValidationErrors(this.employeeForm);
+    });
   }
 
-  logValidationErrors(group: FormGroup): void {
+  logValidationErrors(group: FormGroup = this.employeeForm): void {
     Object.keys(group.controls).forEach((key: string) => {
       const abstractControl = group.get(key);
       if (abstractControl instanceof FormGroup) {
         this.logValidationErrors(abstractControl);
       } else {
         (this.formErrors as any)[key] = '';
-        if (abstractControl && !abstractControl.valid) {
+        if (abstractControl && !abstractControl.valid && (abstractControl.touched || abstractControl.dirty)) {
           const messages = (this.validationMessages as any)[key];
           for (const errorKey in abstractControl.errors) {
             if (errorKey) {
@@ -71,8 +75,8 @@ export class CreateEmployeeComponent implements OnInit {
   }
 
   onLoadDataClick(): void {
-    this.logValidationErrors(this.employeeForm);
-    console.log(this.formErrors);
+    // this.logValidationErrors(this.employeeForm);
+    // console.log(this.formErrors);
   }
 
   onSubmit(): void{
