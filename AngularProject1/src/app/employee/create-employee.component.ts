@@ -136,17 +136,17 @@ export class CreateEmployeeComponent implements OnInit {
       new FormArray([])
     ]);
 
-    for (const control of formArray.controls) {
-      if (control instanceof FormControl) {
-        console.log('control is FormControl');
-      }
-      if (control instanceof FormGroup) {
-        console.log('control is FormGroup');
-      }
-      if (control instanceof FormArray) {
-        console.log('control is FormArray');
-      }
-    }
+    const formArray1 = this.fb.array([
+      new FormControl('John', Validators.required),
+      new FormControl('IT', Validators.required),
+      new FormControl('Male', Validators.required),
+    ]);
+    formArray1.push(new FormControl('Mark', Validators.required));
+
+    // console.log(formArray1.value);
+    // console.log(formArray1.valid);
+    console.log(formArray1.at(3).value);
+
   }
 
   onSubmit(): void {
