@@ -1,12 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormGroup,
-  FormBuilder,
-  Validators,
-  AbstractControl,
-  FormArray,
-  FormControl,
-} from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, AbstractControl, FormArray, FormControl } from '@angular/forms';
 import { CustomValidators } from '../shared/custom.validators';
 
 @Component({
@@ -16,7 +9,7 @@ import { CustomValidators } from '../shared/custom.validators';
 })
 export class CreateEmployeeComponent implements OnInit {
   employeeForm!: FormGroup;
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder) { }
 
   formErrors = {
     fullName: '',
@@ -61,19 +54,11 @@ export class CreateEmployeeComponent implements OnInit {
 
   ngOnInit() {
     this.employeeForm = this.fb.group({
-      fullName: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(2),
-          Validators.maxLength(10),
-        ],
-      ],
+      fullName: ['',[Validators.required,Validators.minLength(2),Validators.maxLength(10)]],
       contactPreference: ['email'],
       emailGroup: this.fb.group({
-        email: ['',[Validators.required, CustomValidators.emailDomain('dell.com')]],
-        confirmEmail: ['', Validators.required],
-      },{ validator: matchEmails }),
+        email: ['', [Validators.required, CustomValidators.emailDomain('dell.com')]],
+        confirmEmail: ['', Validators.required]}, { validator: matchEmails }),
       phone: [''],
       skills: this.fb.array([
         this.addSkillFormGroup()
@@ -81,20 +66,27 @@ export class CreateEmployeeComponent implements OnInit {
     });
 
     (this.employeeForm as any).get('contactPreference').valueChanges.subscribe((data: string) => {
-        this.onContactPrefernceChange(data);
-      });
+      this.onContactPrefernceChange(data);
+    });
 
     this.employeeForm.valueChanges.subscribe((data) => {
       this.logValidationErrors(this.employeeForm);
     });
   }
 
-  addSkillFormGroup(): FormGroup{
+  addSkillButtonClick(): void {
+    (<FormArray>this.employeeForm.get('skills')).push(this.addSkillFormGroup());
+  }
+
+  addSkillFormGroup(): FormGroup {
     return this.fb.group({
       skillName: ['', Validators.required],
       experienceInYears: ['', Validators.required],
       proficiency: ['', Validators.required],
     });
+  }
+  get skills(): FormArray {
+    return this.employeeForm.get('skills') as FormArray;
   }
 
   onContactPrefernceChange(selectedValue: string) {
@@ -112,18 +104,18 @@ export class CreateEmployeeComponent implements OnInit {
       const abstractControl = group.get(key);
 
       (this.formErrors as any)[key] = '';
-        if (
-          abstractControl &&
-          !abstractControl.valid &&
-          (abstractControl.touched || abstractControl.dirty)
-        ) {
-          const messages = (this.validationMessages as any)[key];
-          for (const errorKey in abstractControl.errors) {
-            if (errorKey) {
-              (this.formErrors as any)[key] += messages[errorKey] + ' ';
-            }
+      if (
+        abstractControl &&
+        !abstractControl.valid &&
+        (abstractControl.touched || abstractControl.dirty)
+      ) {
+        const messages = (this.validationMessages as any)[key];
+        for (const errorKey in abstractControl.errors) {
+          if (errorKey) {
+            (this.formErrors as any)[key] += messages[errorKey] + ' ';
           }
         }
+      }
 
       if (abstractControl instanceof FormGroup) {
         this.logValidationErrors(abstractControl);
