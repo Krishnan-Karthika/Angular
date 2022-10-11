@@ -128,24 +128,21 @@ export class CreateEmployeeComponent implements OnInit {
   }
 
   onLoadDataClick(): void {
-    const formArray = new FormArray([
-      new FormControl('John', Validators.required),
-      new FormGroup({
-        country: new FormControl('', Validators.required)
-      }),
-      new FormArray([])
-    ]);
 
     const formArray1 = this.fb.array([
       new FormControl('John', Validators.required),
       new FormControl('IT', Validators.required),
       new FormControl('Male', Validators.required),
     ]);
-    formArray1.push(new FormControl('Mark', Validators.required));
 
-    // console.log(formArray1.value);
-    // console.log(formArray1.valid);
-    console.log(formArray1.at(3).value);
+    const FormGroup = this.fb.group([
+      new FormControl('John', Validators.required),
+      new FormControl('IT', Validators.required),
+      new FormControl('Male', Validators.required),
+    ]);
+
+    console.log(formArray1);
+    console.log(FormGroup);
 
   }
 
