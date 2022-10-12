@@ -1,0 +1,24 @@
+h1{
+  font-size: 4rem;
+  color: aliceblue;
+  margin-bottom: -1.5rem;
+  margin-left: 2rem;
+  padding-top: 1.4rem;
+}
+h2{
+  font-size: 1.6rem;
+  color: aliceblue;
+  margin-bottom: 5rem;
+  margin-left: 2rem;
+
+}
+.container{
+  background-color: gray;
+  height: 4cm;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.homepage{
+  background-color: rgb(238, 235, 231);
+  height: 25cm;
+  margin: -2.7rem 10rem;
+}
