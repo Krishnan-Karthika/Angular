@@ -1,0 +1,89 @@
+<br><br><br><br><br>
+<!-- <div *ngIf="errorFlag=='Success'">
+  <h2>pincode result</h2>
+  <table mat-table  class="mat-elevation-z8" >
+    <ng-container matColumnDef="index">
+      <th mat-header-cell *matHeaderCellDef> No. &nbsp;</th>
+      <td mat-cell *matCellDef="let i = index"> {{i+1}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Name">
+      <th mat-header-cell *matHeaderCellDef>&nbsp; Name </th>
+      <td mat-cell *matCellDef="let element">&nbsp; {{element.Name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="BranchType">
+      <th mat-header-cell *matHeaderCellDef>&nbsp; Branch Type </th>
+      <td mat-cell *matCellDef="let element">&nbsp; {{element.BranchType}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="PostOffice">
+      <th mat-header-cell *matHeaderCellDef>&nbsp; Post Office </th>
+      <td mat-cell *matCellDef="let i=index" routerLink="/data/{{i}}">&nbsp; <a >details </a>  </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table>
+</div> -->
+
+<!-- [dataSource]="data['0'].IPostOffice" -->
+<!-- <mat-icon>open_in_new</mat-icon> -->
+
+
+  <!-- <div *ngIf="data && errorFlag=='Success'">
+    <table>
+      <thead>
+        <th>#</th>
+        <th>Branch Name</th>
+        <th>Branch Type</th>
+        <th>Details</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of data['0'].PostOffice; index as i ">
+          <td>{{i+1}}</td>
+          <td>{{item.Name}}</td>
+          <td>{{item.BranchType}}</td>
+          <td><a mat-icon-button disabled aria-label="Example icon button with a open in new tab icon" routerLink="/data/{{i}}">
+            <mat-icon>open_in_new</mat-icon>
+          </a></td>
+        </tr>
+      </tbody>
+
+    </table>
+</div> -->
+
+<!-- <button mat-icon-button disabled aria-label="Example icon button with a open in new tab icon">
+  <mat-icon>open_in_new</mat-icon>
+</button> -->
+
+
+
+
+
+
+
+
+
+
+
+<div>
+  <table>
+    <thead>
+      <th>#</th>
+      <th>Branch Name</th>
+      <th>Branch Type</th>
+      <th>Details</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of data['0'].PostOffice; index as i ">
+        <td>{{i+1}}</td>
+        <td>{{item.Name}}</td>
+        <td>{{item.BranchType}}</td>
+        <td><a routerLink="/view-details/{{i}}">details</a>
+      </tr>
+    </tbody>
+
+  </table>
+</div>
