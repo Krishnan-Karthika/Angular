@@ -1,9 +1,5 @@
-<div class="panel panel-primary">
-  <div *ngIf="data">
+<div *ngIf="data">
 
-    <div class="panel-heading">
-      <!-- <h3 class="panel-title">{{data['0'].PostOffice[itemid].Name}}</h3> -->
-    </div>
   <ul>
     <h2>{{data['0'].PostOffice[itemid].Name}}</h2>
     <h4>Post Office Type: {{data['0'].PostOffice[itemid].BranchType}}</h4>
@@ -18,6 +14,5 @@
     <li>State: {{data['0'].PostOffice[itemid].State}}</li>
     <li>Country: {{data['0'].PostOffice[itemid].Country}}</li>
   </ul>
-</div>
 </div>
 

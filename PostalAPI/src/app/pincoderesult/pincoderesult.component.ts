@@ -20,15 +20,16 @@ export class PincoderesultComponent implements OnInit {
   }
 
   Printdata(){
-    this.pincodeservice.getBranchUsingPin().subscribe({
-      next:response => {
+    this.pincodeservice.getDetailsUsingPin().subscribe({next:response => {
         console.log(response);
         this.data=response;
         console.log(this.data);
         if(this.data['0'].Status=='404' || this.data['0'].Status=='Error'){
           this.errorFlag="Error"
-          console.log("Pincode doesn't exist")
-          this.router.navigateByUrl('/errorpage');
+          console.log("Pincode doesn't exist");
+
+
+          // this.router.navigateByUrl('/home');
         }
         else{
           this.errorFlag="Success"

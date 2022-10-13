@@ -3,13 +3,12 @@ import { ActivatedRoute } from '@angular/router';
 import { PincodeService } from '../pincode.service';
 
 @Component({
-  selector: 'app-viewdetails',
-  templateUrl: './viewdetails.component.html',
-  styleUrls: ['./viewdetails.component.css']
+  selector: 'app-viewbranchdetails',
+  templateUrl: './viewbranchdetails.component.html',
+  styleUrls: ['./viewbranchdetails.component.css']
 })
-export class ViewdetailsComponent implements OnInit {
+export class ViewbranchdetailsComponent implements OnInit {
   data:any;
-  item:any;
   itemid!:number;
 
   constructor(private pincodeservice:PincodeService, private route:ActivatedRoute) { }
@@ -22,7 +21,7 @@ export class ViewdetailsComponent implements OnInit {
   }
 
   Printdata(){
-    this.pincodeservice.getDetailsUsingPin().subscribe({
+    this.pincodeservice.getDetailsUsingBranch().subscribe({
       next:response => {
         console.log(response);
         this.data=response;

@@ -5,15 +5,11 @@
 
       <div class="tab">
         <h2>Search Post Office details by Pincode:</h2>
-        <div class="form-group" >
+        <div class="form-group">
           <div class="col-sm-8">
             <form class="form-horizontal" [formGroup]="searchFormByPincode">
-            <!-- <input class="form-control" formControlName="pincode" id="pincode" type="text" placeholder="Enter 6 digit pincode " (blur)="logValidationErrors()">
-            <span class="help-block" *ngIf="formErrors.pincode">
-              {{formErrors.pincode}}
-            </span> -->
-            <input class="form-control" formControlName="pincode" id="pincode" type="text" placeholder="Enter 6 digit pincode ">
-            <button class="btn btn-primary" (click)="SubmitPincode()" routerLink="/search-by-pincode" type="button">Submit</button>
+                <input class="form-control" formControlName="pincode" id="pincode" type="text" placeholder="Enter 6 digit pincode ">
+                <button (click)="SubmitPincode()" routerLink="/search-by-pincode" [disabled]="searchFormByPincode.get('pincode')?.invalid">Submit</button>
           </form>
           </div>
         </div>
@@ -24,21 +20,17 @@
 
     <div class="tab">
       <h2>Search Post Office details by Branch Name:</h2>
-      <!-- <div class="form-group" [ngClass]="{'has-error': formErrors.branch}"> -->
+      <div class="form-group">
         <div class="col-sm-8">
           <form class="form-horizontal" [formGroup]="searchFormByBranch">
-          <!-- <input id="branch" type="text" placeholder="Enter branch name " class="form-control" formControlName="branch" (blur)="logValidationErrors()">
-          <span class="help-block" *ngIf="formErrors.branch">
-            {{formErrors.branch}}
-          </span> -->
-          <input class="form-control" formControlName="branch" id="branch" type="text" placeholder="Enter branch name ">
-          <button class="btn btn-primary" (click)="SubmitBranch()" routerLink="/search-by-branch" type="button">Submit</button>
-        </form>
+            <input class="form-control" formControlName="branch" id="branch" type="text" placeholder="Enter branch name ">
+            <button class="btn btn-primary" (click)="SubmitBranch()" routerLink="/search-by-branch" type="button">Submit</button>
+          </form>
         </div>
-      <!-- </div> -->
+      </div>
     </div>
+</div>
 
-  </div>
 
 
 

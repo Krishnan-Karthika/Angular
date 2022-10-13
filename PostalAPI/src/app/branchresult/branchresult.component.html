@@ -18,36 +18,9 @@
         <td>{{item.Name}}</td>
         <td>{{item.Pincode}}</td>
         <td>{{item.BranchType}}</td>
-        <td><a routerLink="/view-details/{{i}}">details</a>
+        <td><a routerLink="/branch-view-details/{{i}}">details</a>
         </td>
       </tr>
-
     </tbody>
   </table>
 </div>
-
-<!--
-<div *ngIf="data && errorFlag=='Success'">
-  <h2>branch result</h2>
-  <table>
-    <thead>
-      <th>#</th>
-      <th>Branch Name</th>
-      <th>Pincode</th>
-      <th>Branch Type</th>
-      <th>Details</th>
-    </thead>
-    <tbody> -->
-      <!-- <tr *ngFor="let item of data['0'].PostOffice; index as i ">
-        <td>{{i+1}}</td>
-        <td>{{item.Name}}</td>
-        <td>{{item.BranchType}}</td>
-        <td><a mat-icon-button disabled aria-label="Example icon button with a open in new tab icon" routerLink="/data2/{{i}}">
-          open
-            </a>
-        </td>
-      </tr> -->
-    <!-- </tbody>
-
-  </table>
-</div> -->

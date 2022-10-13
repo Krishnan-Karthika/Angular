@@ -28,50 +28,52 @@ export class SearchPageComponent implements OnInit {
 
   SubmitPincode(){
     const code = this.searchFormByPincode.get('pincode')?.value;
+    console.log("Pincode Field value");
     console.log(code);
-    this.pincodeservice.sendPin(code);
+    this.pincodeservice.setUrlWithPin(code);
     }
   SubmitBranch(){
     const branch = this.searchFormByBranch.get('branch')?.value;
+    console.log("Branch Field value");
     console.log(branch);
-    this.pincodeservice.sendBranch(branch)
+    this.pincodeservice.setUrlWithBranch(branch)
     }
 
-  // formErrors = {
-  //   pincode: '',
-  //   branch: '',
-  // };
+  formErrors = {
+    pincode: '',
+    branch: '',
+  };
 
-  // validationMessages = {
-  //   pincode: {
-  //     required: 'Pincode is required.',
-  //     minlength: 'Pincode must have 6 digits',
-  //     maxlength: 'Pincode must have 6 digits',
-  //   },
-  //   branch:{
-  //     required: 'Branch is required.',
-  //   }
-  // };
+  validationMessages = {
+    pincode: {
+      required: 'Pincode is required.',
+      minlength: 'Pincode must have 6 digits',
+      maxlength: 'Pincode must have 6 digits',
+    },
+    branch:{
+      required: 'Branch is required.',
+    }
+  };
 
 
-  // logValidationErrors(group: FormGroup = this.searchFormByPincode): void {
-  //   Object.keys(group.controls).forEach((key: string) => {
-  //     const abstractControl = group.get(key);
-  //     (this.formErrors as any)[key] = '';
-  //     if (abstractControl && !abstractControl.valid && (abstractControl.touched || abstractControl.dirty)) {
-  //       const messages = (this.validationMessages as any)[key];
-  //       for (const errorKey in abstractControl.errors) {
-  //         if (errorKey) {
-  //           (this.formErrors as any)[key] += messages[errorKey] + ' ';
-  //         }
-  //       }
-  //     }
+  logValidationErrors(group: FormGroup = this.searchFormByPincode): void {
+    Object.keys(group.controls).forEach((key: string) => {
+      const abstractControl = group.get(key);
+      (this.formErrors as any)[key] = '';
+      if (abstractControl && !abstractControl.valid && (abstractControl.touched || abstractControl.dirty)) {
+        const messages = (this.validationMessages as any)[key];
+        for (const errorKey in abstractControl.errors) {
+          if (errorKey) {
+            (this.formErrors as any)[key] += messages[errorKey] + ' ';
+          }
+        }
+      }
 
-  //     if (abstractControl instanceof FormGroup) {
-  //       this.logValidationErrors(abstractControl);
-  //     }
-  //   });
-  // }
+      if (abstractControl instanceof FormGroup) {
+        this.logValidationErrors(abstractControl);
+      }
+    });
+  }
 
 
 

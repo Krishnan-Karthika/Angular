@@ -12,20 +12,20 @@ export class BranchresultComponent implements OnInit {
 
   constructor(private pincodeservice:PincodeService, private router:Router) { }
   errorFlag!:string;
+
   ngOnInit(): void {
     this.Printdata();
   }
 
   Printdata(){
-    this.pincodeservice.getPinUsingBranch().subscribe({
-      next:response => {
+    this.pincodeservice.getDetailsUsingBranch().subscribe({next:response => {
         console.log(response);
         this.data=response;
         console.log(this.data);
         if(this.data['0'].Status=='Error'){
           this.errorFlag="Error"
           console.log("Branch Name doesn't exist")
-          this.router.navigateByUrl('/errorpage');
+          this.router.navigateByUrl('/home');
         }
         else{
           this.errorFlag="Success"

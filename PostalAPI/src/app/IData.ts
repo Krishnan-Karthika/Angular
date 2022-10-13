@@ -1,3 +1,9 @@
+export interface IData {
+  Message: string;
+  Status: string;
+  PostOffice: IPostOffice[];
+}
+
 export interface IPostOffice {
   PostOffice: string;
   PostOfficeType:string;
@@ -11,35 +17,3 @@ export interface IPostOffice {
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Name: string;
-  // Description: string;
-  // BranchType: string;
-  // Circle: string;
-  // Region: string;
-  // Country: string;

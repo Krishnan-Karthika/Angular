@@ -10,6 +10,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ViewdetailsComponent } from './viewdetails/viewdetails.component';
 import { PincoderesultComponent } from './pincoderesult/pincoderesult.component';
 import { BranchresultComponent } from './branchresult/branchresult.component';
+import { ViewbranchdetailsComponent } from './viewbranchdetails/viewbranchdetails.component';
+import { NgToastModule } from 'ng-angular-popup';
 
 @NgModule({
   declarations: [
@@ -17,13 +19,15 @@ import { BranchresultComponent } from './branchresult/branchresult.component';
     SearchPageComponent,
     ViewdetailsComponent,
     PincoderesultComponent,
-    BranchresultComponent
+    BranchresultComponent,
+    ViewbranchdetailsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgToastModule
   ],
   providers: [PincodeService],
   bootstrap: [AppComponent]
