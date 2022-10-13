@@ -1,0 +1,14 @@
+.container{
+  background-color: #fff;
+  margin: 2cm 5cm;
+}
+table{
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 20px;
+}
+th,td{
+  border:1px black solid;padding: 15px;
+  text-align: center;
+  font-size: 17px;
+}

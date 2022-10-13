@@ -1,10 +1,56 @@
-<div class="panel panel-primary">
+<div class="container">
+  <div>
+    <button type="button" class="closebtn" title="Close" routerLink="/home" >X</button>
+  </div>
   <div *ngIf="data">
+  <table>
+    <thead>
+    <tr><th colspan="2">{{data['0'].PostOffice[itemid].Name}}</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Pincode:</td>
+      <td>{{data['0'].PostOffice[itemid].Pincode}}</td>
+    </tr>
+    <tr>
+      <td>Delivery Status: </td>
+      <td>{{data['0'].PostOffice[itemid].DeliveryStatus}}</td>
+    </tr>
+    <tr>
+      <td>Division:</td>
+      <td>{{data['0'].PostOffice[itemid].Division}}</td>
+    </tr>
+    <tr>
+      <td>District:</td>
+      <td>{{data['0'].PostOffice[itemid].District}}</td>
+    </tr>
+    <tr>
+      <td>Region:</td>
+      <td>{{data['0'].PostOffice[itemid].Region}}</td>
+    </tr>
+    <tr>
+      <td>Circle:</td>
+      <td>{{data['0'].PostOffice[itemid].Circle}}</td>
+    </tr>
+    <tr>
+      <td>State:</td>
+      <td>{{data['0'].PostOffice[itemid].State}}</td>
+    </tr>
+    <tr>
+      <td>Country:</td>
+      <td>{{data['0'].PostOffice[itemid].Country}}</td>
+    </tr>
 
-    <div class="panel-heading">
-      <!-- <h3 class="panel-title">{{data['0'].PostOffice[itemid].Name}}</h3> -->
-    </div>
-  <ul>
+  </tbody>
+
+  </table>
+
+</div>
+</div>
+
+
+
+<!-- <ul>
     <h2>{{data['0'].PostOffice[itemid].Name}}</h2>
     <h4>Post Office Type: {{data['0'].PostOffice[itemid].BranchType}}</h4>
 
@@ -17,7 +63,4 @@
     <li>Circle: {{data['0'].PostOffice[itemid].Circle}}</li>
     <li>State: {{data['0'].PostOffice[itemid].State}}</li>
     <li>Country: {{data['0'].PostOffice[itemid].Country}}</li>
-  </ul>
-</div>
-</div>
-
+  </ul> -->

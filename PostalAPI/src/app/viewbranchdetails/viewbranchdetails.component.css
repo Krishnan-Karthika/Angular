@@ -1,0 +1,38 @@
+.container{
+  background-color: #fff;
+  margin: 2cm 5cm;
+}
+table{
+  border-collapse: collapse;
+  width: 100%;
+}
+thead{
+  padding: 1cm;
+}
+tbody{
+  padding: 2cm;
+}
+th{
+  padding: 15px;
+  text-align: center;
+  font-size: 25px;
+}
+td{
+  padding: 10px 5px;
+  text-align: center;
+  font-size: 17px;
+}
+.closebtn{
+  font-weight: 600;
+  font-size: 20px;
+  text-align: center;
+  height: 40px;
+  border: 1px solid #9d9898;
+  padding: 4px 10px;
+  border-radius: 4px;
+  color: #fff;
+  background-color: #9d9898;
+  margin-top: 20px;
+  margin-right: 20px;
+  float: right;
+}

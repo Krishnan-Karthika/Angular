@@ -22,7 +22,7 @@
 
 .container .tab {
   width: 100%;
-  height: 17cm;
+  height: 6cm;
   background: #fff;
   order: 1;
   display: none;
@@ -30,7 +30,7 @@
 }
 
 .container .tab h2 {
-  font-size: 1.5em;
+  font-size: 1.8em;
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
@@ -40,4 +40,33 @@
 
 .container input[type="radio"]:checked + label {
   background: #fff;
+}
+
+ .tab input{
+  width: 30%;
+  height: 0.7cm;
+  padding: 6px 12px;
+  font-size: 14px;
+  color: #555;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-left:6cm;
+  margin-top: 0.4cm;
+}
+.tab input:focus{
+  outline: none !important;
+  box-shadow: 0 0 5px #719ECE;
+}
+
+.tab button{
+  font-size: 16px;
+  text-align: center;
+  height: 40px;
+  border: 1px solid #2e6da4;
+  padding: 6px 15px;
+  border-radius: 4px;
+  color: #fff;
+  background-color: #337ab7;
+  margin-left: 20px;
 }
