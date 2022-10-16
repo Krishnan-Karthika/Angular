@@ -9,8 +9,7 @@
           <div class="col-sm-8">
             <form class="form-horizontal" [formGroup]="searchFormByPincode">
                 <input class="form-control" formControlName="pincode" id="pincode" type="text" placeholder="Enter 6 digit pincode ">
-                <!-- <button (click)="SubmitPincode()" routerLink="/search-by-pincode" [disabled]="searchFormByPincode.get('pincode')?.invalid">Submit</button> -->
-                <button mat-raised-button color="primary" (click)="SubmitPincode()" routerLink="/search-by-pincode" [disabled]="searchFormByPincode.get('pincode')?.invalid">Submit</button>
+                <button mat-raised-button color="primary" (click)="SubmitPincode()" routerLink="/search-by-pincode/{{this.searchFormByPincode.get('pincode')?.value}}" [disabled]="searchFormByPincode.get('pincode')?.invalid">Submit</button>
           </form>
           </div>
         </div>
@@ -25,15 +24,9 @@
         <div class="col-sm-8">
           <form class="form-horizontal" [formGroup]="searchFormByBranch">
             <input class="form-control" formControlName="branch" id="branch" type="text" placeholder="Enter branch name ">
-            <!-- <button (click)="SubmitBranch()" routerLink="/search-by-branch"  [disabled]="searchFormByBranch.get('branch')?.invalid">Submit</button> -->
-            <button class="btn btn-primary" (click)="SubmitBranch()" routerLink="/search-by-branch"  [disabled]="searchFormByBranch.get('branch')?.invalid">Submit</button>
+            <button class="btn btn-primary" (click)="SubmitBranch()" routerLink="/search-by-branch/{{this.searchFormByBranch.get('branch')?.value}}"  [disabled]="searchFormByBranch.get('branch')?.invalid">Submit</button>
           </form>
         </div>
       </div>
     </div>
 </div>
-
-
-
-
-

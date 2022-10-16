@@ -10,35 +10,26 @@ import { PincodeService } from '../pincode.service';
 export class PincoderesultComponent implements OnInit {
   data:any;
   errorFlag!:string;
-  displayedColumns: any[]=['index','Name','BranchType','PostOffice'];
-
 
   constructor(private pincodeservice:PincodeService, private router:Router) { }
 
   ngOnInit(): void {
-    this.Printdata();
+    this.printData();
   }
 
-  Printdata(){
-    this.pincodeservice.getDetailsUsingPin().subscribe({next:response => {
-        console.log(response);
+  printData(){
+    this.pincodeservice.getDetailsUsingPin().subscribe((response) => {
         this.data=response;
-        console.log(this.data);
         if(this.data['0'].Status=='404' || this.data['0'].Status=='Error'){
           this.errorFlag="Error"
           console.log("Pincode doesn't exist");
-
-
-          // this.router.navigateByUrl('/home');
+          this.router.navigateByUrl('/home');
         }
         else{
           this.errorFlag="Success"
         }
-      }
+      });
+    }
 
-    });
-    console.log(this.data); //gives undefined
 
   }
-
-}

@@ -20,24 +20,17 @@ export class PincodeService {
     return this.data;
   }
 
-  setUrlWithPin(pin:number){
-    console.log("in pincode service");
-    console.log(pin);
+  setApiWithPin(pin:number){
     this.pincode_url=this.baseUrl+'/pincode/'+pin;
-    console.log(this.pincode_url);
+  }
+
+  setApiWithBranch(branch:string){
+    this.branch_url=this.baseUrl+'/postoffice/'+branch;
   }
 
   getDetailsUsingPin():Observable<IData>{
     this.data= this.httpClient.get<IData>(this.pincode_url);
-    console.log(this.data); //observable data
     return this.data;
-  }
-
-  setUrlWithBranch(branch:string){
-    console.log("in pincode service");
-    console.log(branch);
-    this.branch_url=this.baseUrl+'/postoffice/'+branch;
-    console.log(this.branch_url);
   }
 
   getDetailsUsingBranch():Observable<IData>{

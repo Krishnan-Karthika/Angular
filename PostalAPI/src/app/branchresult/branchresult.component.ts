@@ -9,19 +9,18 @@ import { PincodeService } from '../pincode.service';
 })
 export class BranchresultComponent implements OnInit {
   data:any;
-
-  constructor(private pincodeservice:PincodeService, private router:Router) { }
   errorFlag!:string;
 
+  constructor(private pincodeservice:PincodeService, private router:Router) { }
+
+
   ngOnInit(): void {
-    this.Printdata();
+    this.printData();
   }
 
-  Printdata(){
-    this.pincodeservice.getDetailsUsingBranch().subscribe({next:response => {
-        console.log(response);
+  printData(){
+    this.pincodeservice.getDetailsUsingBranch().subscribe((response) => {
         this.data=response;
-        console.log(this.data);
         if(this.data['0'].Status=='Error'){
           this.errorFlag="Error"
           console.log("Branch Name doesn't exist")
@@ -30,8 +29,8 @@ export class BranchresultComponent implements OnInit {
         else{
           this.errorFlag="Success"
         }
-      },
-    });
+    })
+    }
   }
 
-}
+

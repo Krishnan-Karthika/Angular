@@ -15,20 +15,17 @@ export class ViewdetailsComponent implements OnInit {
   constructor(private pincodeservice:PincodeService, private route:ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.Printdata();
+    this.printData();
     this.route.params.subscribe((params) => {
       this.itemid=params['id'];
     });
   }
 
-  Printdata(){
-    this.pincodeservice.getDetailsUsingPin().subscribe({
-      next:response => {
-        console.log(response);
+  printData(){
+    this.pincodeservice.getDetailsUsingPin().subscribe((response) => {
         this.data=response;
-        console.log(this.data);
-      },
-    });
-  }
-
+      })
+    }
 }
+
+

@@ -14,20 +14,17 @@ export class ViewbranchdetailsComponent implements OnInit {
   constructor(private pincodeservice:PincodeService, private route:ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.Printdata();
+    this.printData();
     this.route.params.subscribe((params) => {
       this.itemid=params['id'];
     });
   }
 
-  Printdata(){
-    this.pincodeservice.getDetailsUsingBranch().subscribe({
-      next:response => {
-        console.log(response);
+  printData(){
+    this.pincodeservice.getDetailsUsingBranch().subscribe((response) => {
         this.data=response;
-        console.log(this.data);
-      },
-    });
+      })
+
   }
 
 }

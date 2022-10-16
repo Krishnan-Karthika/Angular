@@ -9,10 +9,10 @@ import { ViewdetailsComponent } from './viewdetails/viewdetails.component';
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: SearchPageComponent  },
-  { path: 'pincode-view-details/:id', component: ViewdetailsComponent  },
-  { path: 'search-by-branch', component: BranchresultComponent  },
-  { path: 'search-by-pincode', component: PincoderesultComponent  },
-  { path: 'branch-view-details/:id', component: ViewbranchdetailsComponent  }
+  { path: 'pincode-details/:id', component: ViewdetailsComponent  },
+  { path: 'search-by-branch/:branch', component: BranchresultComponent  },
+  { path: 'search-by-pincode/:pincode', component: PincoderesultComponent  },
+  { path: 'branch-details/:id', component: ViewbranchdetailsComponent  }
 ];
 
 @NgModule({

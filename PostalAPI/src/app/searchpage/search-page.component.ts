@@ -30,12 +30,12 @@ export class SearchPageComponent implements OnInit {
     const code = this.searchFormByPincode.get('pincode')?.value;
     console.log("Pincode Field value");
     console.log(code);
-    this.pincodeservice.setUrlWithPin(code);
+    this.pincodeservice.setApiWithPin(code);
     }
   SubmitBranch(){
     const branch = this.searchFormByBranch.get('branch')?.value;
     console.log("Branch Field value");
     console.log(branch);
-    this.pincodeservice.setUrlWithBranch(branch)
+    this.pincodeservice.setApiWithBranch(branch)
     }
 }
