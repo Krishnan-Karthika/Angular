@@ -1,0 +1,13 @@
+<router-outlet></router-outlet>
+<table>
+  <thead>
+    <tr>
+      <th *ngFor="let key of tabKeys">{{key}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let value of tabValues">
+    <td *ngFor="let val of value">{{val}}</td>
+    </tr>
+  </tbody>
+</table>
