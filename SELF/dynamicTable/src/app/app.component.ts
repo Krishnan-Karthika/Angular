@@ -9,6 +9,7 @@ export class AppComponent {
   title = 'dynamicTable';
 
   constructor(){
+    // since this fun should be loaded on onLoad, it should be called from Constructor or ngOnit
     this.getData();
   }
 
